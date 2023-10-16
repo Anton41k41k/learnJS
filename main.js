@@ -20,6 +20,7 @@ b += b;
 c = a + -b;
 
 console.log(c);
+console.log(a);
 
 // конец 5 дня
 
