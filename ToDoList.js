@@ -44,9 +44,6 @@ function deleteTask(task){
 
 function showList(ToDo, In_Process, Done) {
 
-for (; Object.keys(list) == "ToDo";) {
-  ToDo = Object.keys(list)
-}
   if (Object.keys(list) == "ToDo"){
     ToDo = (Object.keys(list) == "ToDo");
   } else{
