@@ -47,25 +47,25 @@ function showList(ToDo, In_Process, Done) {
 for (; Object.keys(list) == "ToDo";) {
   ToDo = Object.keys(list)
 }
-  // if (Object.keys(list) == "ToDo"){
-  //   ToDo = (Object.keys(list) == "ToDo");
-  // } else{
-  //   ToDo = "-"
-  // }
+  if (Object.keys(list) == "ToDo"){
+    ToDo = (Object.keys(list) == "ToDo");
+  } else{
+    ToDo = "-"
+  }
 
-  // if (Object.values(list) === "In Process"){
-  //   In_Process = Object.keys(list)
-  //   return;
-  // } else{
-  //   In_Process = "-"
-  // }
+  if (Object.values(list) === "In Process"){
+    In_Process = Object.keys(list)
+    return;
+  } else{
+    In_Process = "-"
+  }
 
-  // if (Object.values(list) === "Done"){
-  //   Done = (Object.values(list) === "Done")
-  //   return;
-  // } else{
-  //   Done = "-"
-  // }
+  if (Object.values(list) === "Done"){
+    Done = (Object.values(list) === "Done")
+    return;
+  } else{
+    Done = "-"
+  }
 
 
   
