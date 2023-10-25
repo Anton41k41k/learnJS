@@ -1,11 +1,7 @@
 const list = {
-
   "create a new practice task": "In Progress",
-
   "make a bed": "Done",
-
   "write a post": "To Do", 
-
 };
 
 function changeStatus(task, status) {
@@ -42,32 +38,25 @@ function deleteTask(task){
 
 }
 
-function showList(ToDo, In_Process, Done) {
+function showList() {
+let ToDo = {};
+let In_Progress = {};
+let Done = {};
 
-  if (Object.values(list) == "ToDo"){
-    ToDo = (Object.keys(list) == "ToDo");
-  } else{
-    ToDo = "-"
+for (key in list){
+  if (list[key] == "To Do"){
+    ToDo[key] = key;
   }
 
-  if (Object.values(list) === "In Process"){
-    In_Process = Object.keys(list)
-    return;
-  } else{
-    In_Process = "-"
-  }
+  if (list[key] == "In Progress"){
+    In_Progress[key] = key;
+  } 
 
-  if (Object.values(list) === "Done"){
-    Done = (Object.values(list) === "Done")
-    return;
-  } else{
-    Done = "-"
-  }
-
-
-  
-  console.log(`ToDo: ${ToDo}, In Process: ${In_Process}, Done: ${Done}`)
-
+  if (list[key] == "Done"){
+    Done[key] = key;
+  } 
+}
+console.log(`ToDo: ${Object.keys(ToDo)}, In_Progress: ${Object.keys(In_Progress)}, Done: ${Object.keys(Done)}`);
 }
 
 
@@ -82,5 +71,7 @@ addTask("Выйти в окно");
 changeStatus("Выйти в окно", "In Progress");
 
 changeStatus("write a post", "In Progress");
+
+changeStatus("write a post", "Done");
 
 showList();
