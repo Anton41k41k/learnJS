@@ -43,8 +43,8 @@ function deleteTask(task){
 }
 
 function showList(ToDo, In_Process, Done) {
-  // По приколу
-  if (Object.keys(list) == "ToDo"){
+
+  if (Object.values(list) == "ToDo"){
     ToDo = (Object.keys(list) == "ToDo");
   } else{
     ToDo = "-"
