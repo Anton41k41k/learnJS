@@ -39,9 +39,9 @@ function deleteTask(task){
 }
 
 function showList() {
-let ToDo = {};
-let In_Progress = {};
-let Done = {};
+  let ToDo = {};
+  let In_Progress = {};
+  let Done = {};
 
 for (key in list){
   if (list[key] == "To Do"){
@@ -59,19 +59,13 @@ for (key in list){
 console.log(`ToDo: ${Object.keys(ToDo)}, In_Progress: ${Object.keys(In_Progress)}, Done: ${Object.keys(Done)}`);
 }
 
-
-
-
 changeStatus("write a post", "In Progress");
-
 deleteTask("make a bed");
-
 addTask("Выйти в окно");
-
 changeStatus("Выйти в окно", "In Progress");
-
 changeStatus("write a post", "In Progress");
-
 changeStatus("write a post", "Done");
+addTask("play in Dota 2");
+changeStatus("play in Dota 2", "To Do") 
 
 showList();
