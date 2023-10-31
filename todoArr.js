@@ -1,44 +1,38 @@
 const list = [
 { name: 'create a post', status: 'In progress', priority: 'low' },
-{ name: 'lern JS', status: 'In progress', priority: 'high' },
+{ name: 'learn JS', status: 'In progress', priority: 'high' },
 { name: 'play in computer', status: 'Done', priority: 'low' },
 { name: 'make VKR', status: 'Done', priority: 'high' },
 ] 
 
 function changeStatus(task, status) {
+for (tasks of list){
   if (task in list) {
-
     list[task] = status;
-
- } else if (status == list[task]){
-
-  console.log(`У "${task}" уже задан статус "${status}".`);
-
- } else {
-
-  console.log(`Задачи "${task}" не существует, либо вы ввели не верное название.`);
-
- } 
-
+  } else if (status == list[task]){
+    console.log(`У "${task}" уже задан статус "${status}".`);
+  } else {
+    console.log(`Задачи "${task}" не существует, либо вы ввели не верное название.`);
+  } 
+}
+  
 }
 
+
+
 function addTask(task) {
-  if (task in list) {
-    console.log(`Задача "${task}" уже есть в списке дел.`);
-  } else{
-    list[task] = "";
-  }
+  list.push({ name: task, status: "To Do", priority: "low"})
 }
 
 function deleteTask(task){
-  if (task in list) {
-    delete list[task];
-  } else {
-    console.log("Вы неверно ввели задачу, либо ее не существует.");
+let index = list.findIndex(tasks => tasks.name == task);
+  for (tasks of list){
+    list.splice(index, 1);
+    return;
   }
-    
-
 }
+
+deleteTask('learn JS')
 
 function showList() {
   let ToDo = {};
@@ -57,18 +51,15 @@ for (key in list){
   if (list[key] == "Done"){
     Done[key] = key;
   }
-
-  
-
 }
 
-if (!Object.keys(ToDo).length){
+  if (!Object.keys(ToDo).length){
     ToDo["-"] = '-';
   }
-if (!Object.keys(In_Progress).length){
+  if (!Object.keys(In_Progress).length){
     In_Progress["-"] = '-';
   }
-if (!Object.keys(Done).length){
+  if (!Object.keys(Done).length){
     Done["-"] = '-';
   }
 
@@ -77,5 +68,4 @@ In Progress: ${Object.keys(In_Progress)}.
 Done: ${Object.keys(Done)}.`);
 
 }
-
-showList();
+console.log(list);
