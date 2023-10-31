@@ -21,18 +21,21 @@ for (tasks of list){
 
 
 function addTask(task) {
-  list.push({ name: task, status: "To Do", priority: "low"})
-}
-
-function deleteTask(task){
-let index = list.findIndex(tasks => tasks.name == task);
-  for (tasks of list){
-    list.splice(index, 1);
-    return;
+  if (list.find(tasks => tasks.name == task)){
+    console.log(`Задача "${task}" уже сущетсвует`);
+  } else {
+    list.push({ name: task, status: "To Do", priority: "low"})
   }
 }
 
-deleteTask('learn JS')
+function deleteTask(task){
+ if ((index = list.findIndex(tasks => tasks.name == task)) >= 0){
+    list.splice(index, 1);
+    return;
+  } else {
+    console.log(`Задача "${task}" уже отсутствует в списке, либо вы не верно указали задачу`);
+  }
+}
 
 function showList() {
   let ToDo = {};
