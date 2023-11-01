@@ -5,21 +5,23 @@ const list = [
 { name: 'make VKR', status: 'Done', priority: 'high' },
 ] 
 
-function changeStatus(name, status) {
-    if (list.find(tasks => tasks.name == name) && list.find(tasks => tasks.status !== status)){
-      list.find(tasks => tasks.status = status);
-    } else if (list.find(tasks => tasks.name !== name)){
-      console.log(`Задача "${name}" отсутстувет в списке дел`);
-      return
-    } else if (list.find(tasks => tasks.name == name) && (tasks => tasks.status == status)){
-      console.log(`У задачи "${name}" уже задан статут "${status}"`);
-    }
+function changeStatus(task, status) {
+  if ((index = list.findIndex(tasks => tasks.name == task)) >= 0){
+    list.splice(index, (list[index].status = status));
+    return;
+  } else if ((index = list.findIndex(tasks => tasks.name == task)) < 0){
+    console.log(`Задачи "${task}" нету в списке`);
   }
+}
 
-
-changeStatus('learn JS', 'To Do');
-
-
+function changePriority(task, priority) {
+  if ((index = list.findIndex(tasks => tasks.name == task)) >= 0){
+    list.splice(index, (list[index].priority = priority));
+    return;
+  } else if ((index = list.findIndex(tasks => tasks.name == task)) < 0){
+    console.log(`Задачи "${task}" нету в списке`);
+  }
+}
 
 function addTask(task) {
   if (list.find(tasks => tasks.name == task)){
