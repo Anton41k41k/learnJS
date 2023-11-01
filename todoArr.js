@@ -5,18 +5,19 @@ const list = [
 { name: 'make VKR', status: 'Done', priority: 'high' },
 ] 
 
-function changeStatus(task, status) {
-for (tasks of list){
-  if (task in list) {
-    list[task] = status;
-  } else if (status == list[task]){
-    console.log(`У "${task}" уже задан статус "${status}".`);
-  } else {
-    console.log(`Задачи "${task}" не существует, либо вы ввели не верное название.`);
-  } 
-}
-  
-}
+function changeStatus(name, status) {
+    if (list.find(tasks => tasks.name == name) && list.find(tasks => tasks.status !== status)){
+      list.find(tasks => tasks.status = status);
+    } else if (list.find(tasks => tasks.name !== name)){
+      console.log(`Задача "${name}" отсутстувет в списке дел`);
+      return
+    } else if (list.find(tasks => tasks.name == name) && (tasks => tasks.status == status)){
+      console.log(`У задачи "${name}" уже задан статут "${status}"`);
+    }
+  }
+
+
+changeStatus('learn JS', 'To Do');
 
 
 
@@ -24,7 +25,7 @@ function addTask(task) {
   if (list.find(tasks => tasks.name == task)){
     console.log(`Задача "${task}" уже сущетсвует`);
   } else {
-    list.push({ name: task, status: "To Do", priority: "low"})
+    list.push({ name: task, status: "To Do", priority: "Приоритет не указан"})
   }
 }
 
