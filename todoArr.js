@@ -1,8 +1,8 @@
 const list = [
-{ name: 'create a post', status: 'In progress', priority: 'low' },
-{ name: 'learn JS', status: 'In progress', priority: 'high' },
-{ name: 'play in computer', status: 'Done', priority: 'low' },
-{ name: 'make VKR', status: 'Done', priority: 'high' },
+{ name: 'create a post', status: 'Done', priority: 'Low' },
+{ name: 'learn JS', status: 'In progress', priority: 'High' },
+{ name: 'play in computer', status: 'Done', priority: 'Low' },
+{ name: 'make VKR', status: 'To Do', priority: 'High' },
 ] 
 
 function changeStatus(task, status) {
@@ -41,37 +41,73 @@ function deleteTask(task){
 }
 
 function showList() {
-  let ToDo = {};
-  let In_Progress = {};
-  let Done = {};
+  const Done = [];
+  const In_Progress = [];
+  const ToDo = [];
+  const high = [];
+  const low = [];
+  const medium = [];
 
-for (key in list){
-  if (list[key] == "To Do"){
-    ToDo[key] = key;
-  } 
+  for (tasks of list){
+   if (tasks.status == 'Done'){
+    Done.push(tasks.name);
+   }
 
-  if (list[key] == "In Progress"){
-    In_Progress[key] = key;
-  } 
-
-  if (list[key] == "Done"){
-    Done[key] = key;
+   if (tasks.status == 'In progress'){
+    In_Progress.push(tasks.name);
+   }
+  
+   if (tasks.status == 'To Do'){
+    ToDo.push(tasks.name);
+   }
+   
   }
+
+  if (Done.length == 0){
+    Done.unshift('-');
+   }
+  if (In_Progress.length == 0){
+    In_Progress.unshift('-');
+   }
+  if (ToDo.length == 0){
+    ToDo.unshift('-');
+   }
+
+  for (tasks of list){
+   if (tasks.priority == 'High'){
+    high.push(tasks.name);
+   }
+
+   if (tasks.priority == 'Medium'){
+    medium.push(tasks.name);
+   }
+  
+   if (tasks.priority == 'Low'){
+    low.push(tasks.name);
+   }
+   
+  }
+
+  if (high.length == 0){
+    high.unshift('-');
+   }
+  if (medium.length == 0){
+    medium.unshift('-');
+   }
+  if (low.length == 0){
+    low.unshift('-');
+   }
+  
+  console.log(`Задачи по статусу.
+Done: ${String(Done.join(', '))}.
+In Progress: ${String(In_Progress.join(', '))}.
+To Do: ${String(ToDo.join(', '))}.
+
+Задачи по приоритету.
+High: ${String(high.join(', '))}.
+Medium: ${String(medium.join(', '))}.
+Low: ${String(low.join(', '))}.
+`);
 }
 
-  if (!Object.keys(ToDo).length){
-    ToDo["-"] = '-';
-  }
-  if (!Object.keys(In_Progress).length){
-    In_Progress["-"] = '-';
-  }
-  if (!Object.keys(Done).length){
-    Done["-"] = '-';
-  }
-
-console.log(`To Do: ${Object.keys(ToDo)}.
-In Progress: ${Object.keys(In_Progress)}.
-Done: ${Object.keys(Done)}.`);
-
-}
-console.log(list);
+showList();
