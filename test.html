@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn__start">Секундомер</button>
+
+  <script>
+    let btn = document.getElementById('btn__start')
+    let current = 0;
+    
+    function runTimer() {
+      let timerId = setInterval(function () {
+        console.log(current);
+        return current++;
+      }, 1000);
+      return timerId;
+    }
+
+    function timer() {
+      if (current == 0){
+        runTimer()
+      } else {
+        console.log(current);;
+      }
+
+      }
+
+    btn.addEventListener('click', timer);
+  </script>
+</body>
+</html>
