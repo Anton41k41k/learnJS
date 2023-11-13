@@ -6,30 +6,44 @@
   <title>Document</title>
 </head>
 <body>
-  <button id="btn__start">Секундомер</button>
+  <button id="btn__start">Старт/Стоп</button>
+  <button id="btn__cont">продолжить</button>
+  <button id="btn__reset">обнулить</button>
+
+  
 
   <script>
-    let btn = document.getElementById('btn__start')
+    let btnStartStop = document.getElementById('btn__start')
+    let btnCont = document.getElementById('btn__cont')
+    let btnReset = document.getElementById('btn__reset')
     let current = 0;
+    let timerId = 0;
     
-    function runTimer() {
-      let timerId = setInterval(function () {
-        console.log(current);
-        return current++;
-      }, 1000);
-      return timerId;
+    function runCurrent() {
+      console.log(current);
+      return current++;
     }
 
-    function timer() {
-      if (current == 0){
-        runTimer()
-      } else {
-        console.log(current);;
-      }
+    function runTimer() {
+      if (current === 0) {
+      timerId = setInterval(runCurrent, 1000);
+    } else {
+      clearInterval(timerId);
+    }
+  }
 
-      }
+    function contTimer() {
+      timerId = setInterval(runCurrent, 1000);
+    }
+    function resetTimer() {
+      clearInterval(timerId);
+      current = 0;
+      timerId = 0;
+    }
 
-    btn.addEventListener('click', timer);
+    btnStartStop.addEventListener('click', runTimer);
+    btnCont.addEventListener('click', contTimer);
+    btnReset.addEventListener('click', resetTimer);
   </script>
 </body>
 </html>
