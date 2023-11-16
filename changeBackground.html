@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="change-bg" data-color="#e6e6e6">Изменить фон</button>
+  <script>
+    const button = document.getElementById('change-bg');
+    const colorBG = button.getAttribute('data-color');
+    const body = document.body;
+
+      function changeColorBG() {
+        body.style.backgroundColor = colorBG;
+      }
+
+      button.addEventListener('click', changeColorBG)
+  </script>
+</body>
+</html>
