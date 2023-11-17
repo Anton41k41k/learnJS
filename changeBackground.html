@@ -7,16 +7,37 @@
 </head>
 <body>
   <button id="change-bg" data-color="#e6e6e6">Изменить фон</button>
+  <button id="randomChange-bg">Случайный фон</button>
+
+
+
   <script>
-    const button = document.getElementById('change-bg');
-    const colorBG = button.getAttribute('data-color');
+    const changeBGBtn = document.getElementById('change-bg');
+    const randomBGBtn = document.getElementById('randomChange-bg');
+    const colorBG = changeBGBtn.getAttribute('data-color');
     const body = document.body;
 
+    // const colors = ['red', 'blue', 'green', 'orange'];
+    // let randomColor = colors[Math.floor(Math.random() * colors.length)];
+    let intervalId;
+
       function changeColorBG() {
+        clearInterval(intervalId);
         body.style.backgroundColor = colorBG;
       }
 
-      button.addEventListener('click', changeColorBG)
+      function randomColorBG() {
+        intervalId = setInterval(() => {
+          const colors = ['red', 'blue', 'green', 'orange'];
+          let randomColor = colors[Math.floor(Math.random() * colors.length)];
+          body.style.backgroundColor = randomColor;
+          console.log(body.style.backgroundColor);
+        }, 2000);
+        return;
+      }
+
+      changeBGBtn.addEventListener('click', changeColorBG)
+      randomBGBtn.addEventListener('click', randomColorBG)
   </script>
 </body>
 </html>
