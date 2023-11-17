@@ -3,6 +3,10 @@ const secondNumber = +document.getElementById('secondNumber').value;
 const select = document.getElementById('select');
 const resultButton = document.getElementById('getResult');
 const result = document.getElementById('result');
+const resultList = document.querySelector('.resultList')
+
+resultButton.addEventListener('click', getResult);
+resultList.addEventListener('click', deleteResult);
 
 function getResult() {
   if (select.value === "+"){
@@ -17,6 +21,10 @@ function getResult() {
   if (select.value === "/"){
     result.textContent = firstNumber / secondNumber;
   }
-
+  resultList.insertAdjacentHTML('beforeend', `<div class = 'resultList_element'>${result.textContent}</div>`);
+  return;
 }
-resultButton.addEventListener('click', getResult);
+
+function deleteResult(event) {
+  resultList.removeChild(event.target);
+}
