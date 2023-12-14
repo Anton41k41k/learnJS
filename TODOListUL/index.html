@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main">
+    <div class="priority__high container">
+      <h1>HIGH</h1>
+        <form onsubmit="addTask();return false" class="addTask__high">
+          <input type="text" placeholder="Добавить" class="input__high">
+          <input type="submit" class="btn__high btn__add" value="">
+        </form>
+      <div class="taskList__high">
+
+      </div>
+    </div>
+
+    <div class="priority__medium container">
+      <h1>MEDIUM</h1>
+        <form onsubmit="addTask();return false" class="addTask__medium">
+          <input type="text" placeholder="Добавить" class="input__medium">
+          <input type="submit" class="btn__medium btn__add" value="">
+        </form>
+      <div class="taskList__medium">
+
+      </div>
+    </div>
+    
+    <div class="priority__low container">
+      <h1>LOW</h1>
+        <form onsubmit="addTask();return false" class="addTask__low">
+          <input type="text" placeholder="Добавить" class="input__low">
+          <input type="submit" class="btn__low btn__add" value="">
+        </form>
+      <div class="taskList__low">
+
+      </div>
+    </div>
+
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
