@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: #202020;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  outline: none;
+}
+
+main {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  min-height: 25vh;
+  max-width: 100%;
+}
+
+.answer{
+  text-align: center;
+}
+
