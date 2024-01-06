@@ -106,6 +106,7 @@ function now(event) {
         imgCloud.src = './img/clouds/mist.png'
         break;
     }
+    toStorageNow(tempText, imgCloud, cityNow)
     
   })()
   .catch(error => {
@@ -115,7 +116,6 @@ function now(event) {
     cityNow.textContent = 'Ошибка!';
   });
   event.preventDefault()
-  toStorageNow(tempText, imgCloud, cityNow)
 }
 
 function followCity() {
@@ -143,7 +143,6 @@ function getTemp(event) {
       tempText.textContent = Math.round(temp.main.temp);
       
       cityNow.textContent = temp.name;
-      toStorageNow(tempText, imgCloud, cityNow)
 
       switch (temp.weather[0].description) {
       case 'clear sky':
@@ -230,6 +229,7 @@ function getTemp(event) {
         imgCloud.src = './img/clouds/mist.png'
         break;
     }
+    toStorageNow(tempText, imgCloud, cityNow)
     })()
     .catch(error => {
       alert('ошибка');

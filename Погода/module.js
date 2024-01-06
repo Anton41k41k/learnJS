@@ -2,7 +2,6 @@ let storageFollowCity;
 let currentTemp;
 let currentCity;
 let currentImg;
-const storageCurrentCity = {};
 
 export function toStorageFollow(object) {
   storageFollowCity = object.innerHTML;
