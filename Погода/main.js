@@ -19,7 +19,7 @@ async function getCityTempFromInput() {
 }
 
 function updateTempVidget(tempData) {
-  const {weather,main,name} = tempData;
+  const { weather, main, name } = tempData;
   tempText.textContent = Math.round(main.temp);
   cityNow.textContent = name;
 
@@ -34,27 +34,30 @@ async function handleSubmitCity(event) {
     updateTempVidget(temp);
     toStorageNow(cityNow);
   } catch (error) {
-    tempText.textContent = '-';
-    cityNow.textContent = 'Ошибка!';
+    tempText.textContent = "-";
+    cityNow.textContent = "Ошибка!";
   }
-
 }
 
 function handleAddCityInFollowList() {
-  if (listCity.childElementCount < 5) {
-    listCity.insertAdjacentHTML(
-      "afterbegin",
-      `<div class="list__element">
+  if (listFollowCity.has(cityNow.textContent)){
+    alert('Этот город уже есть в списке')
+  } else {
+    if (listCity.childElementCount < 5) {
+      listCity.insertAdjacentHTML(
+        "afterbegin",
+        `<div class="list__element">
     <p class="name__town">${cityNow.textContent}</p>
     <button>
     <img class="deleteBtn" src="img/delete.png" alt="0">
     </button>
     </div>`
-    );
-    listFollowCity.add(cityNow.textContent);
-  } else {
-    alert("Список полный!");
-  }
+      );
+      listFollowCity.add(cityNow.textContent);
+    } else {
+      alert("Список полный!");
+    }
+ }
   toStorageFollow(listFollowCity);
 }
 
@@ -107,10 +110,9 @@ async function reloadPage() {
     </div>`
       );
     }
-    
   } catch (error) {
-    tempText.textContent = '-';
-    cityNow.textContent = 'Ошибка!';
+    tempText.textContent = "-";
+    cityNow.textContent = "Ошибка!";
   }
 }
 
@@ -119,9 +121,7 @@ function deleteCity(event) {
   if (event.target.tagName != "IMG") {
     return;
   } else {
-    listFollowCity.delete( 
-      deleteCity.children[0].textContent
-    );
+    listFollowCity.delete(deleteCity.children[0].textContent);
     listCity.removeChild(deleteCity);
   }
   toStorageFollow(listFollowCity);

@@ -109,5 +109,7 @@ Medium: ${String(medium.join(', '))}.
 Low: ${String(low.join(', '))}.
 `);
 }
-
+addTask('Попеть макана')
+changeStatus('Попеть макана', 'In progress')
+changePriority('Попеть макана', 'High')
 showList();

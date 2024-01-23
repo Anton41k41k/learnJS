@@ -16,9 +16,8 @@
     const randomBGBtn = document.getElementById('randomChange-bg');
     const colorBG = changeBGBtn.getAttribute('data-color');
     const body = document.body;
+    let check = false;
 
-    // const colors = ['red', 'blue', 'green', 'orange'];
-    // let randomColor = colors[Math.floor(Math.random() * colors.length)];
     let intervalId;
 
       function changeColorBG() {
@@ -27,14 +26,20 @@
       }
 
       function randomColorBG() {
-        intervalId = setInterval(() => {
+        if (!check){
+          intervalId = setInterval(() => {
           const colors = ['red', 'blue', 'green', 'orange'];
           let randomColor = colors[Math.floor(Math.random() * colors.length)];
           body.style.backgroundColor = randomColor;
           console.log(body.style.backgroundColor);
+          check = true;
         }, 2000);
-        return;
-      }
+        } else {
+          clearInterval(intervalId);
+          body.style.backgroundColor = "#FFFFFF";
+          check = false;
+        }
+        }
 
       changeBGBtn.addEventListener('click', changeColorBG)
       randomBGBtn.addEventListener('click', randomColorBG)

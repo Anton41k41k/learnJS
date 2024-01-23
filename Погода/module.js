@@ -2,7 +2,7 @@ let storageFollowCity;
 let currentCity;
 
 export function toStorageFollow(object) {
-  storageFollowCity = object.innerHTML;
+  storageFollowCity = JSON.stringify([...object]);
   localStorage.setItem('follow', storageFollowCity);
 }
 
@@ -11,7 +11,7 @@ export function toStorageNow(cityNow) {
   localStorage.setItem('city', currentCity);
 }
 
-export function imgFilter(object, imgCloud) {
+export function updateWeatherImg(object, imgCloud) {
   switch (object) {
       case 'clear sky':
         imgCloud.src = './img/clouds/clearSky.png';

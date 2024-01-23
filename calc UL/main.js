@@ -1,14 +1,16 @@
-const firstNumber = +document.getElementById('firstNumber').value;
-const secondNumber = +document.getElementById('secondNumber').value;
 const select = document.getElementById('select');
 const resultButton = document.getElementById('getResult');
 const result = document.getElementById('result');
-const resultList = document.querySelector('.resultList')
+const resultList = document.querySelector('.resultList');
 
 resultButton.addEventListener('click', getResult);
 resultList.addEventListener('click', deleteResult);
 
+
 function getResult() {
+  const firstNumber = Number(document.getElementById('firstNumber').value);
+  const secondNumber = Number(document.getElementById('secondNumber').value);
+
   if (select.value === "+"){
     result.textContent = firstNumber + secondNumber;
   }
@@ -25,6 +27,6 @@ function getResult() {
   return;
 }
 
-function deleteResult(event) {
+function deleteCity(event) {
   resultList.removeChild(event.target);
 }

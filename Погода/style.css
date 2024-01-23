@@ -1,6 +1,7 @@
 body{
   font-family: "roboto";
 }
+
 h1{
   font-family: Roboto;
     font-size: 24px;
@@ -8,6 +9,7 @@ h1{
     font-weight: 400;
     line-height: normal;
 }
+
 p{
   font-family: Roboto;
   font-size: 24px;
@@ -46,11 +48,8 @@ form{
 .search-input:active,
 .search-input:hover,
 .search-input:focus {
-
   outline: 0;
-
   outline-offset: 0;
-
 }
 
 .search-btn{
@@ -62,7 +61,7 @@ form{
 }
 
 .search-btn:hover{
-  transform: scale(1.2)
+  transform: scale(1.25)
 }
 
 .information{
@@ -75,16 +74,18 @@ form{
 .city{
   border-right: solid 1px #000;
 }
+
 .city__tempature{
   display: flex;
   gap: 5px;
   padding: 1.5em;
 }
+
 .city__tempature img{
   width: 13px;
-  height: 13px;
-  
+  height: 13px;  
 }
+
 .city__tempature p{
   font-size: 70px;
 }
@@ -110,9 +111,6 @@ form{
 .list__city{
   padding-top: 3em;
 }
-
-
-
 
 .list__title{
   border-bottom: solid 1px #000;
@@ -140,10 +138,7 @@ form{
 }
 
 button:hover {
-
   cursor: pointer;
-
-
 }
 
 .img__cloud{

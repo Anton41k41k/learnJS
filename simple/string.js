@@ -5,7 +5,6 @@ function showVerticalMessage(str) {
   }
 
   str = str.slice(0, 7);
-  console.log(str);
   for (let vertStr of str){
    console.log(vertStr);
   }
